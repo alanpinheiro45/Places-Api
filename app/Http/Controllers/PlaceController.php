@@ -7,28 +7,28 @@ use Illuminate\Http\Request;
 
 class PlaceController extends Controller
 {
-    // Listar todos os lugares
+    // List all places
     public function index()
     {
         $places = Place::all();
         return response()->json($places);
     }
 
-    // Criar um novo lugar
+    // Create a new place
     public function store(Request $request)
     {
         $place = Place::create($request->all());
         return response()->json($place, 201);
     }
 
-    // Exibir um lugar específico
+    // Display a specific place
     public function show($id)
     {
         $place = Place::findOrFail($id);
         return response()->json($place);
     }
 
-    // Atualizar um lugar específico
+    // Update a specific place
     public function update(Request $request, $id)
     {
         $place = Place::findOrFail($id);
@@ -36,7 +36,7 @@ class PlaceController extends Controller
         return response()->json($place);
     }
 
-    // Deletar um lugar específico
+    // Delete a specific place
     public function destroy($id)
     {
         $place = Place::findOrFail($id);
